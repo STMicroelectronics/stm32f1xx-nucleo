@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    stm32f1xx_nucleo.c
   * @author  MCD Application Team
-  * @version V1.0.3
-  * @date    29-April-2016
+  * @version V1.0.4
+  * @date    14-April-2017
   * @brief   This file provides set of firmware functions to manage:
   *          - LEDs and push-button available on STM32F1XX-Nucleo Kit 
   *            from STMicroelectronics
@@ -12,29 +12,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -46,7 +29,7 @@
   * @{
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO STM32F103RB-Nucleo
+/** @defgroup STM32F1XX_NUCLEO STM32F103RB Nucleo
   * @brief This file provides set of firmware functions to manage Leds and push-button
   *        available on STM32F1XX-Nucleo Kit from STMicroelectronics.
   *        It provides also LCD, joystick and uSD functions to communicate with 
@@ -55,7 +38,7 @@
   */ 
 
 
-/** @defgroup STM32F1XX_NUCLEO_Private_Defines Private Defines
+/** @defgroup STM32F1XX_NUCLEO_Private_Defines STM32F1XX NUCLEO Private Defines
   * @{
   */ 
   
@@ -64,7 +47,7 @@
 */
 #define __STM32F1XX_NUCLEO_BSP_VERSION_MAIN   (0x01) /*!< [31:24] main version */
 #define __STM32F1XX_NUCLEO_BSP_VERSION_SUB1   (0x00) /*!< [23:16] sub1 version */
-#define __STM32F1XX_NUCLEO_BSP_VERSION_SUB2   (0x03) /*!< [15:8]  sub2 version */
+#define __STM32F1XX_NUCLEO_BSP_VERSION_SUB2   (0x05) /*!< [15:8]  sub2 version */
 #define __STM32F1XX_NUCLEO_BSP_VERSION_RC     (0x00) /*!< [7:0]  release candidate */ 
 #define __STM32F1XX_NUCLEO_BSP_VERSION       ((__STM32F1XX_NUCLEO_BSP_VERSION_MAIN << 24)\
                                              |(__STM32F1XX_NUCLEO_BSP_VERSION_SUB1 << 16)\
@@ -82,7 +65,7 @@
   */ 
 
 
-/** @defgroup STM32F1XX_NUCLEO_Private_Variables Private Variables
+/** @defgroup STM32F1XX_NUCLEO_Private_Variables STM32F1XX NUCLEO Private Variables
   * @{
   */ 
 GPIO_TypeDef* LED_PORT[LEDn] = {LED2_GPIO_PORT};
@@ -112,7 +95,7 @@ static ADC_ChannelConfTypeDef sConfig;
   * @}
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO_Private_Functions Private Functions
+/** @defgroup STM32F1XX_NUCLEO_Private_Functions STM32F1XX NUCLEO Private Functions
   * @{
   */ 
 #ifdef HAL_SPI_MODULE_ENABLED
@@ -150,7 +133,7 @@ static void               ADCx_MspDeInit(ADC_HandleTypeDef *hadc);
   * @}
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO_Exported_Functions Exported Functions
+/** @defgroup STM32F1XX_NUCLEO_Exported_Functions STM32F1XX NUCLEO Exported Functions
   * @{
   */ 
 
@@ -163,7 +146,7 @@ uint32_t BSP_GetVersion(void)
   return __STM32F1XX_NUCLEO_BSP_VERSION;
 }
 
-/** @defgroup STM32F1XX_NUCLEO_LED_Functions LED Functions
+/** @defgroup STM32F1XX_NUCLEO_LED_Functions STM32F1XX NUCLEO LED Functions
   * @{
   */ 
 
@@ -172,7 +155,6 @@ uint32_t BSP_GetVersion(void)
   * @param  Led: Led to be configured. 
   *          This parameter can be one of the following values:
   *     @arg LED2
-  * @retval None
   */
 void BSP_LED_Init(Led_TypeDef Led)
 {
@@ -199,7 +181,6 @@ void BSP_LED_Init(Led_TypeDef Led)
   *   This parameter can be one of the following values:
   *     @arg  LED2
   * @note Led DeInit does not disable the GPIO clock nor disable the Mfx 
-  * @retval None
   */
 void BSP_LED_DeInit(Led_TypeDef Led)
 {
@@ -217,7 +198,6 @@ void BSP_LED_DeInit(Led_TypeDef Led)
   * @param  Led: Specifies the Led to be set on. 
   *   This parameter can be one of following parameters:
   *     @arg LED2
-  * @retval None
   */
 void BSP_LED_On(Led_TypeDef Led)
 {
@@ -229,7 +209,6 @@ void BSP_LED_On(Led_TypeDef Led)
   * @param  Led: Specifies the Led to be set off. 
   *   This parameter can be one of following parameters:
   *     @arg LED2
-  * @retval None
   */
 void BSP_LED_Off(Led_TypeDef Led)
 {
@@ -241,7 +220,6 @@ void BSP_LED_Off(Led_TypeDef Led)
   * @param  Led: Specifies the Led to be toggled. 
   *   This parameter can be one of following parameters:
   *            @arg  LED2
-  * @retval None
   */
 void BSP_LED_Toggle(Led_TypeDef Led)
 {
@@ -252,7 +230,7 @@ void BSP_LED_Toggle(Led_TypeDef Led)
   * @}
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO_BUTTON_Functions BUTTON Functions
+/** @defgroup STM32F1XX_NUCLEO_BUTTON_Functions STM32F1XX NUCLEO BUTTON Functions
   * @{
   */ 
 
@@ -265,7 +243,6 @@ void BSP_LED_Toggle(Led_TypeDef Led)
   *     @arg BUTTON_MODE_GPIO: Button will be used as simple IO 
   *     @arg BUTTON_MODE_EXTI: Button will be connected to EXTI line with interrupt
   *                     generation capability  
-  * @retval None
   */
 void BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef ButtonMode)
 {
@@ -303,7 +280,6 @@ void BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef ButtonMode)
   * @param  Button: Button to be configured
   *   This parameter should be: BUTTON_USER  
   * @note PB DeInit does not disable the GPIO clock
-  * @retval None
   */
 void BSP_PB_DeInit(Button_TypeDef Button)
 {
@@ -342,7 +318,6 @@ uint32_t BSP_PB_GetState(Button_TypeDef Button)
 *******************************************************************************/
 /**
   * @brief  Initialize SPI MSP.
-  * @retval None
   */
 static void SPIx_MspInit(void)
 {
@@ -374,7 +349,6 @@ static void SPIx_MspInit(void)
 
 /**
   * @brief  Initialize SPI HAL.
-  * @retval None
   */
 static void SPIx_Init(void)
 {
@@ -410,7 +384,6 @@ static void SPIx_Init(void)
 /**
   * @brief  SPI Write a byte to device
   * @param  Value: value to be written
-  * @retval None
 */
 static void SPIx_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLength)
 {
@@ -430,7 +403,6 @@ static void SPIx_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t
   * @brief  SPI Write an amount of data to device
   * @param  Value: value to be written
   * @param  DataLength: number of bytes to write
-  * @retval None
   */
 static void SPIx_WriteData(uint8_t *DataIn, uint16_t DataLength)
 {
@@ -449,7 +421,6 @@ static void SPIx_WriteData(uint8_t *DataIn, uint16_t DataLength)
 /**
   * @brief  SPI Write a byte to device
   * @param  Value: value to be written
-  * @retval None
   */
 static void SPIx_Write(uint8_t Value)
 {
@@ -468,7 +439,6 @@ static void SPIx_Write(uint8_t Value)
 
 /**
   * @brief  SPI error treatment function
-  * @retval None
   */
 static void SPIx_Error (void)
 {
@@ -487,7 +457,6 @@ static void SPIx_Error (void)
 /**
   * @brief  Initialize the SD Card and put it into StandBy State (Ready for 
   *         data transfer).
-  * @retval None
   */
 void SD_IO_Init(void)
 {
@@ -530,7 +499,6 @@ void SD_IO_Init(void)
 /**
   * @brief  Set the SD_CS pin.
   * @param  pin value.
-  * @retval None
   */
 void SD_IO_CSState(uint8_t val)
 {
@@ -549,7 +517,6 @@ void SD_IO_CSState(uint8_t val)
   * @param  DataIn: Pointer to data buffer to write
   * @param  DataOut: Pointer to data buffer for read data
   * @param  DataLength: number of bytes to write
-  * @retval None
   */
 void SD_IO_WriteReadData(const uint8_t *DataIn, uint8_t *DataOut, uint16_t DataLength)
   {
@@ -575,7 +542,6 @@ uint8_t SD_IO_WriteByte(uint8_t Data)
   * @brief  Write an amount of data on the SD.
   * @param  Data: byte to send.
   * @param  DataLength: number of bytes to write
-  * @retval none
   */
 void SD_IO_ReadData(uint8_t *DataOut, uint16_t DataLength)
 {
@@ -587,7 +553,6 @@ void SD_IO_ReadData(uint8_t *DataOut, uint16_t DataLength)
   * @brief  Write an amount of data on the SD.
   * @param  Data: byte to send.
   * @param  DataLength: number of bytes to write
-  * @retval none
   */
 void SD_IO_WriteData(const uint8_t *Data, uint16_t DataLength)
 {
@@ -598,7 +563,6 @@ void SD_IO_WriteData(const uint8_t *Data, uint16_t DataLength)
 /********************************* LINK LCD ***********************************/
 /**
   * @brief  Initialize the LCD
-  * @retval None
   */
 void LCD_IO_Init(void)
 {
@@ -649,7 +613,6 @@ void LCD_IO_WriteReg(uint8_t LCDReg)
 * @brief  Write register value.
 * @param  pData Pointer on the register value
 * @param  Size Size of byte to transmit to the register
-* @retval None
 */
 void LCD_IO_WriteMultipleData(uint8_t *pData, uint32_t Size)
 {
@@ -713,7 +676,6 @@ void LCD_Delay(uint32_t Delay)
 /******************************* LINK JOYSTICK ********************************/
 /**
   * @brief  Initialize ADC MSP.
-  * @retval None
   */
 static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
 {
@@ -737,9 +699,7 @@ static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
 
 /**
   * @brief  DeInitializes ADC MSP.
-  * @param  None
   * @note ADC DeInit does not disable the GPIO clock
-  * @retval None
   */
 static void ADCx_MspDeInit(ADC_HandleTypeDef *hadc)
 {
@@ -759,7 +719,6 @@ static void ADCx_MspDeInit(ADC_HandleTypeDef *hadc)
 
 /**
   * @brief  Initializes ADC HAL.
-  * @retval None
   */
 static HAL_StatusTypeDef ADCx_Init(void)
 {
@@ -798,8 +757,6 @@ static HAL_StatusTypeDef ADCx_Init(void)
 
 /**
   * @brief  Initializes ADC HAL.
-  * @param  None
-  * @retval None
   */
 static void ADCx_DeInit(void)
 {
@@ -835,7 +792,6 @@ uint8_t BSP_JOY_Init(void)
 /**
   * @brief  DeInit joystick GPIOs.
   * @note   JOY DeInit does not disable the Mfx, just set the Mfx pins in Off mode
-  * @retval None.
   */
 void BSP_JOY_DeInit(void)
 {
@@ -915,4 +871,3 @@ JOYState_TypeDef BSP_JOY_GetState(void)
   * @}
   */ 
     
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

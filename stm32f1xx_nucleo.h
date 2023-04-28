@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    stm32f1xx_nucleo.h
   * @author  MCD Application Team
-  * @version V1.0.3
-  * @date    29-April-2016
+  * @version V1.0.4
+  * @date    14-April-2017
   * @brief   This file contains definitions for:
   *          - LEDs and push-button available on STM32F1XX-Nucleo Kit 
   *            from STMicroelectronics
@@ -12,29 +12,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2016 STMicroelectronics</center></h2>
+  * Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.
   *
-  * Redistribution and use in source and binary forms, with or without modification,
-  * are permitted provided that the following conditions are met:
-  *   1. Redistributions of source code must retain the above copyright notice,
-  *      this list of conditions and the following disclaimer.
-  *   2. Redistributions in binary form must reproduce the above copyright notice,
-  *      this list of conditions and the following disclaimer in the documentation
-  *      and/or other materials provided with the distribution.
-  *   3. Neither the name of STMicroelectronics nor the names of its contributors
-  *      may be used to endorse or promote products derived from this software
-  *      without specific prior written permission.
-  *
-  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -59,7 +42,7 @@
 #include "stm32f1xx_hal.h"
    
    
-/** @defgroup STM32F1XX_NUCLEO_Exported_Types Exported Types
+/** @defgroup STM32F1XX_NUCLEO_Exported_Types STM32F1XX NUCLEO Exported Types
   * @{
   */
 typedef enum 
@@ -95,7 +78,7 @@ typedef enum
   * @}
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO_Exported_Constants Exported Constants
+/** @defgroup STM32F1XX_NUCLEO_Exported_Constants STM32F1XX NUCLEO Exported Constants
   * @{
   */ 
 
@@ -106,7 +89,7 @@ typedef enum
  #define USE_STM32F1xx_NUCLEO
 #endif
   
-/** @defgroup STM32F1XX_NUCLEO_LED LED Constants
+/** @defgroup STM32F1XX_NUCLEO_LED STM32F1XX NUCLEO LED
   * @{
   */
 #define LEDn                             1
@@ -123,7 +106,7 @@ typedef enum
   * @}
   */ 
 
-/** @defgroup STM32F1XX_NUCLEO_BUTTON BUTTON Constants
+/** @defgroup STM32F1XX_NUCLEO_BUTTON STM32F1XX NUCLEO BUTTON
   * @{
   */  
 #define BUTTONn                          1  
@@ -149,7 +132,7 @@ typedef enum
   * @}
   */
     
-/** @addtogroup STM32F1XX_NUCLEO_BUS BUS Constants
+/** @addtogroup STM32F1XX_NUCLEO_BUS STM32F1XX NUCLEO BUS
   * @{
   */
 /*###################### SPI1 ###################################*/
@@ -239,7 +222,7 @@ typedef enum
   * @{
   */
 uint32_t        BSP_GetVersion(void);
-/** @addtogroup STM32F1XX_NUCLEO_LED_Functions
+/** @addtogroup STM32F1XX_NUCLEO_LED_Functions STM32F1XX NUCLEO LED Functions
   * @{
   */ 
 
@@ -253,7 +236,7 @@ void            BSP_LED_Toggle(Led_TypeDef Led);
   * @}
   */
 
-/** @addtogroup STM32F1XX_NUCLEO_BUTTON_Functions
+/** @addtogroup STM32F1XX_NUCLEO_BUTTON_Functions STM32F1XX NUCLEO BUTTON Functions
   * @{
   */
 
@@ -290,4 +273,3 @@ void             BSP_JOY_DeInit(void);
 #endif /* __STM32F1XX_NUCLEO_H */
 
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
